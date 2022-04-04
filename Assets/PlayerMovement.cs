@@ -14,13 +14,13 @@ public class PlayerMovement : MonoBehaviour {
     public Animator playerAnimator;
 
     //to control physics (gravity, forces)
-    public Rigidbody thisRigidbody;
+    public Rigidbody playerRigidbody;
 
     public Transform cameraTransform;
 
 
     void Start(){
-        thisRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
     }
 
@@ -72,10 +72,21 @@ public class PlayerMovement : MonoBehaviour {
         {
             playerAnimator.SetBool("IsRunning", false);
         }
+
         //jump
-        if (Input.GetKeyDown("space") && grounded)
+        playerAnimator.SetBool("Jumping", false);
+        if (grounded)
         {
-            thisRigidbody.AddForce(Vector3.up * jumpForce);
+            playerAnimator.SetBool("IsGrounded", true);
+            if (Input.GetKeyDown("space"))
+            {
+                playerAnimator.SetBool("Jumping", true);
+                playerRigidbody.AddForce(Vector3.up * jumpForce);
+            }
+        } else
+        {
+            playerAnimator.SetBool("IsGrounded", false);
         }
+
     }
 }
