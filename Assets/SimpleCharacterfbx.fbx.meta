@@ -18,6 +18,9 @@ ModelImporter:
   - first:
       74: 8324654356728483127
     second: JumpEnd
+  - first:
+      74: 82017551088757511
+    second: 0TPose
   externalObjects: {}
   materials:
     materialImportMode: 2
