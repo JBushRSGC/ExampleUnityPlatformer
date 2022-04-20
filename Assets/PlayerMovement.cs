@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+    public int coins = 0;
+
     // Start is called before the first frame update
     public float speed = 0.5f;
     public float jumpForce = 2f;
